@@ -18,7 +18,7 @@
 
 <div class="modalCnt">
     <span class="close">&times;</span>
-    <form action="">
+    <form action="" id="formAdd">
 
 <ul>
 <li>
@@ -36,8 +36,8 @@
 
 <li>
     <label for="bookstatus">Book status:</label>
-<select id="bookstatus" name="bookstatus">
-    <option value="read">READ</option>
+    <select id="bookstatus" name="bookstatus">
+    <option value="read" selected="selected">READ</option>
     <option value="not">NOT READ</option>   
 </select>
 </li>
@@ -58,14 +58,25 @@
 
 
 <div id="books-container">
+
+
+<!--
 <div class="book">
+    
+    
     <p>Fjodor Dostojevski</p>
     <hr>
     <p>Zapisi iz podzemlja</p>
     <hr>
     <p>220</p>
+
+    <div class="onBookButtonsContainer">
+    <button type="button" id="deleteBook" class = "onBookButtons">Delete</button>
+    <button type="button" id="readStatus" class = "onBookButtons">Read</button>
     </div>
 
+    </div>
+-->
 </div>
 
 

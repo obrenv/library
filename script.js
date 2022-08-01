@@ -2,11 +2,17 @@
 
 let myLibrary = [];
 
-function Book(author, title, pages) {
+function Book(author, title, pages, status) {
     this.author = author,
     this.title = title,
-    this.nrOfPages = pages
+    this.nrOfPages = pages,
+    this.bookStatus = status
   }
+
+  Book.prototype.toggleReaded = function () {
+    this.status = !this.status;
+}
+
 
 
 
@@ -15,14 +21,15 @@ function Book(author, title, pages) {
 let author = document.getElementById("author");
 let title = document.getElementById("title");
 let pages = document.getElementById("pages");
-
+let bookStatus = document.getElementById("bookstatus");
 let submit = document.getElementById("submitbtn");
 
 
 function addBook(){
-  let book = new Book(author.value, title.value, pages.value);
+  let book = new Book(author.value, title.value, pages.value, bookStatus.options[bookStatus.selectedIndex].value);
   myLibrary.push(book);
   modal.style.display = "none";
+  
   console.log("wut")
   
 }
@@ -84,7 +91,43 @@ pages.textContent = myLibrary[i].nrOfPages;
 bookBox.appendChild(pages);
 
 
+
+
+let buttonBox = document.createElement("div");
+buttonBox.classList.add("onBookButtonsContainer");
+bookBox.appendChild(buttonBox);
+
+let deleteButton = document.createElement("button");
+deleteButton.textContent = "Delete";
+deleteButton.classList.add("onBookButtons");
+deleteButton.classList.add("dellButt");
+buttonBox.appendChild(deleteButton);
+
+
+deleteButton.onclick = function(){
+  console.log(i);
+  myLibrary.splice(i, 1);
+  this.parentElement.parentElement.remove();
+  counter --;
+}
+
+
+
+
+let readButton = document.createElement("button");
+readButton.textContent = "Read";
+readButton.classList.add("onBookButtons");
+buttonBox.appendChild(readButton);
+
+
+
 counter ++;
+
+
+
+let div = document.getElementsByClassName("book")[i];
+div.dataset.index = i;
+
 }
 
 }
@@ -95,13 +138,20 @@ counter ++;
 function button(){
   addBook(); 
   render();
+  document.getElementById("formAdd").reset();
 }
 
 
 submit.onclick = button;
+
+
 /*
 submit.onclick = addBook; with parenthesses was calling function on load, causing problems
 
 If you don't specify button type as "button", it will reload the page on press (be considered "submit")
+it seems this can also be fixed with "prevent default" method
 
+
+To remove text from form (when we want to submit next book) we can use .reset() method 
+document.getElementById("formAdd").reset();
 */

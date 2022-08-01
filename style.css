@@ -167,7 +167,21 @@ hr{
     border: 1px solid black;
 }
 
+.onBookButtonsContainer{
+ 
+padding:0.5rem;
+display:flex;
+justify-content: space-around;
 
+}
+
+.onBookButtons{
+    
+    background-color: rgb(72, 120, 209);
+    border: 0.5px solid black;
+    height: 1.5rem;
+    width: 4rem;
+}
 
 /*
 
