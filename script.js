@@ -10,8 +10,15 @@ function Book(author, title, pages, status) {
   }
 
   Book.prototype.toggleReaded = function () {
-    this.status = !this.status;
-}
+          if (this.bookStatus==="READ"){
+        this.bookStatus="NOT READ";
+      }
+      else{
+        this.bookStatus="READ";
+      }
+
+      
+    };
 
 
 
@@ -98,11 +105,10 @@ buttonBox.classList.add("onBookButtonsContainer");
 bookBox.appendChild(buttonBox);
 
 let deleteButton = document.createElement("button");
-deleteButton.textContent = "Delete";
+deleteButton.textContent = "DELETE";
 deleteButton.classList.add("onBookButtons");
 deleteButton.classList.add("dellButt");
 buttonBox.appendChild(deleteButton);
-
 
 deleteButton.onclick = function(){
   console.log(i);
@@ -115,11 +121,18 @@ deleteButton.onclick = function(){
 
 
 let readButton = document.createElement("button");
-readButton.textContent = "Read";
+
+
+readButton.textContent = myLibrary[i].bookStatus;
 readButton.classList.add("onBookButtons");
 buttonBox.appendChild(readButton);
 
+readButton.onclick = function(){
 
+  myLibrary[i].toggleReaded();
+  readButton.textContent = myLibrary[i].bookStatus;
+  console.log("pl")
+};
 
 counter ++;
 

@@ -153,13 +153,14 @@ align-items: center;
 .book{
     box-sizing: border-box;
     background-color: blueviolet;
-    height:10rem;
+    min-height:10rem;    
+    height:min-content;
     width:12rem;
     border: solid 3px black;
     padding:1rem;
-
     font-size: large;
     font-weight: bolder;
+    margin:1rem;
 }
 
 
@@ -176,10 +177,13 @@ justify-content: space-around;
 }
 
 .onBookButtons{
-    
+    box-sizing: border-box;
+    display:block;
     background-color: rgb(72, 120, 209);
     border: 0.5px solid black;
-    height: 1.5rem;
+   
+    min-height:1.5rem;
+    height:min-content;
     width: 4rem;
 }
 
