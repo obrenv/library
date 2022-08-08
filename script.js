@@ -10,11 +10,11 @@ function Book(author, title, pages, status) {
   }
 
   Book.prototype.toggleReaded = function () {
-          if (this.bookStatus==="READ"){
-        this.bookStatus="NOT READ";
+    if (this.bookStatus==="READ"){
+      this.bookStatus="NOT READ";
       }
-      else{
-        this.bookStatus="READ";
+    else{
+      this.bookStatus="READ";
       }
 
       
@@ -33,12 +33,10 @@ let submit = document.getElementById("submitbtn");
 
 
 function addBook(){
-  let book = new Book(author.value, title.value, pages.value, bookStatus.options[bookStatus.selectedIndex].value);
+  let book = new Book(author.value, title.value, pages.value, 
+  bookStatus.options[bookStatus.selectedIndex].value);
   myLibrary.push(book);
-  modal.style.display = "none";
-  
-  console.log("wut")
-  
+  modal.style.display = "none"; 
 }
 
 
@@ -51,24 +49,19 @@ let modal = document.getElementsByClassName("modalBck") [0];
 let dugmic = document.getElementById("dugme");
 let close = document.getElementsByClassName("close") [0];
 
-  dugmic.onclick = function() {
-    modal.style.display = "block";
-
-  }
+dugmic.onclick = function(){
+  modal.style.display = "block";
+}
 
 close.onclick = function(){
   modal.style.display = "none";
 }
 
-
-//render books on page
-
-
+//display books on a page
 
 let counter = 0;
 
 function render(){
-
   for (let i = 0; i <= myLibrary.length - 1; i++) {
     
 if(counter <= i){
